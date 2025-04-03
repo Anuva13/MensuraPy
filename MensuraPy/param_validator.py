@@ -1,2 +1,3 @@
-def hello():
+def validate_values():
     print("Anuva")
+    

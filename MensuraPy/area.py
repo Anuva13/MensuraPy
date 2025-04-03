@@ -1,27 +1,19 @@
-import math
-from param_validator import *
+from param_parser import *
 
-def bekar():
-    hello()
+def area(*args):
+    # To check arguments are having values else put error
+    if not args:  # Check if args is empty
+        return "Error: No arguments were passed"
+    else:
+        param_parser(args)
     
-bekar()
+
+# Tests
+area()
+area("square", "3m")
+area("rectangle", "3m", "5m")
+area("circle", "3m") 
+area("triangle", "2m", "3m", "90degrees")
+area("trapezium", "3m", "2m")   
+
     
-"""
-def square(side):
-    # Returns the area of a square.
-    return side ** 2
-
-def rectangle(length,breadth):
-    # Returns the area of a rectangle.
-    return length * breadth
-
-def circle(radius):
-    # Returns the area of a circle.
-    return math.pi * radius ** 2
-
-def area_base_height(base, height):
-    # Returns the area of a triangle when base and height are given
-    return 0.5 * base * height
-
-def area_heros_formula(side1, side2, side3)
-"""
