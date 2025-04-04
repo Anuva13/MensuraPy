@@ -1,3 +1,5 @@
+from param_validator import *
+import re
 def param_parser(args):
     
     # Recieving arguments
@@ -5,7 +7,7 @@ def param_parser(args):
     # Split the arguments recieved from area and enlist them
     match args[0]:
         case 'square':
-            print(f"Arguments parsed for square {args}")    
+            return square_param_parser(args), args[0]    
         case 'rectangle':
             print(f"Arguments parsed for rectangle {args}")
         case 'circle':
@@ -26,12 +28,32 @@ def extract_value_and_unit(value_string):
         return value, unit
     else:
         return None, None  # If no match is found
+    
+# packing the extracted parameters
+def pack_value_and_unit(value, unit):
+    # Initialise an empty dict
+    data = {}
+
+    # Adding multiple values under the same key manually
+    data.setdefault(unit, []).append(value)
+    return data
             
 def square_param_parser(args):
+    
     # Call param_validator to validate the arguments being suitable for the calculation
-    # Sending arguments to param_validator for validation
+    # Sending arguments to param_validator for validation and if it returns true
     if square_param_validator(args):
         side = args[1]
+        # extract argument 1 and send to extractor
+        value, unit = extract_value_and_unit(side)
+    
+        # Assigning the packed value and unit to be used for calculation in area program
+        data = pack_value_and_unit(value, unit)
+        return data
+    else:
+        return {}
+        
+    
         
        
             
