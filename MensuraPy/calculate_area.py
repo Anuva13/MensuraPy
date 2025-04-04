@@ -1,8 +1,15 @@
 import math
 
-def square(side):
+def square(dictionary):
+    side = list(dictionary.values()) # get the first (and only) value
+    side1 = side[0] # extracted first value from the nested array formed when dict is extracted
+    side1= side1[0]
+    unit = list(dictionary.keys())
+    unit1 = unit[0]
+    area = side1 * side1
+    result = str(area)+unit1+str(2)
     # Returns the area of a square.
-    return side ** 2
+    return result
 
 def rectangle(length,breadth):
     # Returns the area of a rectangle.
