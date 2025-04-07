@@ -1,21 +1,22 @@
-from param_parser import *
-from calculate_area import *
+from param_parser import *  # Module to analyze and break down input data into a structured, usable format
+from calculate_area import * # Module to calculate area of different polygons
 
 def area(*args):
-    # To check arguments are having values else put error
+    # First check if arguments are having values else display error
     if not args:  # Check if args is empty
         return "Error: No arguments were passed"
     else:
-        dimensions, shape = param_parser(args)
-    
+        dimensions, shape = param_parser(args) # Call param_parser method to recieve parsed users inputs for calculation
+        print(f"param_parser-  {dimensions}")
+        
         if shape == "square":
             result = square(dimensions)
-            print (result)
+            print(f"calculate_area:square-  {result}")
             return result
         
         if shape == "rectangle":
             result = rectangle(dimensions)
-            print (f"Result from param_parser {result}")
+            print (f"calculate_area:rectangle-  {result}")
             return result
     
 

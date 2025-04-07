@@ -1,23 +1,23 @@
-from param_validator import *
-import re
+from param_validator import * # Module to validate arguments
+import re # Module used to extract the user input values into values and units
 def param_parser(args):
     
     # Recieving arguments
-    print(f"Recieved arguments in param parser {args}")
-    # Split the arguments recieved from area and enlist them
+    print(f"area:area-  {args}")
+    # Based on the shape of polygon call the relevant method to split the arguments & list them
     match args[0]:
         case 'square':
             return square_param_parser(args), args[0]    
         case 'rectangle':
             return rectangle_param_parser(args), args[0]
         case 'circle':
-            print(f"Arguments parsed for circle {args}")
+            return circlr_param_parser(args), args[0]
         case 'triangle':
             print(f"Arguments parsed for triangle {args}")
         case _:
-            print("Invalid")
+            print("Error: Invalid shape")
             
-# regex operation to determine the unit and values of the args
+# Regex operation to determine the 'unit' and 'value' of the args recieved from method 'square_param_parser'
 def extract_value_and_unit(value_string):
     # Regular expression to match the numeric value followed by a unit
     match = re.match(r"(\d+\.?\d*)\s*(\w+)", value_string)
@@ -25,12 +25,12 @@ def extract_value_and_unit(value_string):
     if match:
         value = float(match.group(1))  # Extract the value as a float
         unit = match.group(2)          # Extract the unit
-        print(value,unit)
+        print(f"param_parser:extract_value_and_unit-  {value},{unit}")              
         return value, unit
     else:
         return None, None  # If no match is found
     
-# packing the extracted parameters
+# Packing the extracted parameters from method 'extract_value_and_unit'
 def pack_value_and_unit(value, unit):
     # Initialise an empty dict
     data = {}
@@ -41,21 +41,23 @@ def pack_value_and_unit(value, unit):
             
 def square_param_parser(args):
     
-    # Call param_validator to validate the arguments being suitable for the calculation
-    # Sending arguments to param_validator for validation and if it returns true
+    """Call param_validator to check if the arguments are suitable for the calculation
+    and if it returns True"""
     if square_param_validator(args):
+        # extract argument 1 and send to extractor and recieve the 'value' and 'unit' splitted and made suitable for calculation
         side = args[1]
-        # extract argument 1 and send to extractor
         value, unit = extract_value_and_unit(side)
     
-        # Assigning the packed value and unit to be used for calculation in area program
+        # Pack 'value' and 'unit' in 'data' to be used for calculation in area program
         data = pack_value_and_unit(value, unit)
+        print(f"param_parser:pack_value_and_unit-  {data}")
+        # Return extracted and packed 'value' and 'unit' to Module 'Area'
         return data
     else:
         return {}
     
 def rectangle_param_parser(args):
-    # Initialising a list to append the extracted unit and values
+    # Initialising a list to append the extracted 'unit' and 'values' as there are more unit and value pairs
     data_packer = []    
     if rectangle_param_validator(args):
         # extract arguments and send to extractor
@@ -65,7 +67,8 @@ def rectangle_param_parser(args):
             data = pack_value_and_unit(value, unit)
             # Inserting the extracted value and unit in the initialised list
             data_packer.append(data)
-        print(f"test3 {data_packer}")
+        print(f"param_parser:pack_value_and_unit-  {data_packer}")
+        # Return extracted and packed 'value' and 'unit' to Module 'Area'
         return data_packer
     else:
         return data_packer
