@@ -12,12 +12,15 @@ def square(dictionary):
     return result
 
 def rectangle(list):
-    print(f"recieved dimensions from area afte extraction {list}")
+    print(f"area:area-  {list}")
+    # Structure the recieved data in a flattened list displaying keys and values
     flat_list = [item for d in list for key, values in d.items() for item in [key] + values]
+    # '1' and '3' i.e. odd numbers have values and even numbers have keys (units)
     length = flat_list[1]
     breadth = flat_list[3]
     area = length * breadth
     result = str(area)+flat_list[0]+str(2)
+    # Returns the area of a rectangle
     return result
 
 def circle(radius):
