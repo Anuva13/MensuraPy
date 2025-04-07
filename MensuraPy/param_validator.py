@@ -2,4 +2,10 @@ def square_param_validator(args):
     if len(args) == 2:
         return True
     else:
-        return False    
+        return False
+    
+def rectangle_param_validator(args):
+    if len(args) == 3:
+        return True 
+    else:
+        return False

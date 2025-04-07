@@ -11,9 +11,14 @@ def square(dictionary):
     # Returns the area of a square.
     return result
 
-def rectangle(length,breadth):
-    # Returns the area of a rectangle.
-    return length * breadth
+def rectangle(list):
+    print(f"recieved dimensions from area afte extraction {list}")
+    flat_list = [item for d in list for key, values in d.items() for item in [key] + values]
+    length = flat_list[1]
+    breadth = flat_list[3]
+    area = length * breadth
+    result = str(area)+flat_list[0]+str(2)
+    return result
 
 def circle(radius):
     # Returns the area of a circle.
