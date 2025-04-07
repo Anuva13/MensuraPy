@@ -11,7 +11,7 @@ def param_parser(args):
         case 'rectangle':
             return rectangle_param_parser(args), args[0]
         case 'circle':
-            return circlr_param_parser(args), args[0]
+            return circle_param_parser(args), args[0]
         case 'triangle':
             print(f"Arguments parsed for triangle {args}")
         case _:
@@ -51,14 +51,16 @@ def square_param_parser(args):
         # Pack 'value' and 'unit' in 'data' to be used for calculation in area program
         data = pack_value_and_unit(value, unit)
         print(f"param_parser:pack_value_and_unit-  {data}")
-        # Return extracted and packed 'value' and 'unit' to Module 'Area'
+        # Return extracted and packed 'value' and 'unit' to Module 'area'
         return data
     else:
         return {}
     
 def rectangle_param_parser(args):
     # Initialising a list to append the extracted 'unit' and 'values' as there are more unit and value pairs
-    data_packer = []    
+    data_packer = []
+    """Call param_validator to check if the arguments are suitable for the calculation
+    and if it returns True"""    
     if rectangle_param_validator(args):
         # extract arguments and send to extractor
         for i in range(len(args)-1):
@@ -68,10 +70,26 @@ def rectangle_param_parser(args):
             # Inserting the extracted value and unit in the initialised list
             data_packer.append(data)
         print(f"param_parser:pack_value_and_unit-  {data_packer}")
-        # Return extracted and packed 'value' and 'unit' to Module 'Area'
+        # Return extracted and packed 'value' and 'unit' to Module 'area'
         return data_packer
     else:
         return data_packer
+    
+def circle_param_parser(args):
+    """Call param_validator to check if the arguments are suitable for the calculation
+    and if it returns True"""
+    if circle_param_validator(args):
+        # extract argument 1 and send to extractor and recieve the 'value' and 'unit' splitted and made suitable for calculation
+        radius = args[1]
+        value, unit = extract_value_and_unit(radius)
+    
+        # Pack 'value' and 'unit' in 'data' to be used for calculation in area program
+        data = pack_value_and_unit(value, unit)
+        print(f"param_parser:pack_value_and_unit-  {data}")
+        # Return extracted and packed 'value' and 'unit' to Module 'area'
+        return data
+    else:
+        return {}
                 
             
         

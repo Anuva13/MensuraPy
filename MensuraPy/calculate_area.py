@@ -7,7 +7,7 @@ def square(dictionary):
     unit = list(dictionary.keys())
     unit1 = unit[0]
     area = side1 * side1
-    result = str(area)+unit1+str(2)
+    result = str(area) + unit1 + str(2)
     # Returns the area of a square.
     return result
 
@@ -19,13 +19,18 @@ def rectangle(list):
     length = flat_list[1]
     breadth = flat_list[3]
     area = length * breadth
-    result = str(area)+flat_list[0]+str(2)
+    result = str(area) + flat_list[0]+ str(2)
     # Returns the area of a rectangle
     return result
 
-def circle(radius):
+def circle(dictionary):
+    print(f"area:area-  {dictionary}")
+    flat_list = [item for key, values in dictionary.items() for item in [key] + values]
+    radius = flat_list[1]
+    area = math.pi * radius ** 2
+    result = str(area) + flat_list[0] + str(2)
     # Returns the area of a circle.
-    return math.pi * radius ** 2
+    return result
 
 def triangle_base_height(base, height):
     # Returns the area of a triangle when base and height are given
