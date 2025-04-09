@@ -35,13 +35,15 @@ def area(*args):
 
 # Tests
 # area()
-area("square", "3m")
-#area("rectangle", "3m", "5cm")
+# area("square", "3m")
+# area("rectangle", "3m", "5cm")
+# area("triangle", 2m)
+# area("triangle", "2m", "3cm", "30degrees")
+# area("triangle", "3m", "400cm")
+area("triangle", "1.2m", "85cm", "0.00095km")
 
 """
 # area("circle", "3m")
-# area("triangle", "2m", "3m", "90degrees")
-area("triangle", "5m", "6m", "7m")
 area("trapezium", "3m", "2m") 
 """  
 

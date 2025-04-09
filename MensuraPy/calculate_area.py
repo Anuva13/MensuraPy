@@ -4,28 +4,34 @@ from unit_converter import * # Module to convert dimensions to base unit 'm'
 def square(dictionary):
     # Structure the recieved data in a flattened list displaying keys and values
     flat_list = [item for key, values in dictionary.items() for item in [key] + values]
-    side = flat_list[1]
+    side_value = flat_list[1]
+    side_unit = flat_list[0]
+    
+    # Convert side to target unit (default is meters)
+    side = convert_to_base_unit(side_value, side_unit, target_unit)
+    
+    # Compute area in square of the target unit
     area = side * side
-    result = str(area) + flat_list[0] + str(2)
+    result = f"{area} {target_unit}²"
     # Returns the area of a square.
     return result
 
-def rectangle(list, target_unit='m'):
+def rectangle(list, target_unit = 'm'):
     print(f"area:area-  {list}")
     # Structure the recieved data in a flattened list displaying keys and values
     flat_list = [item for d in list for key, values in d.items() for item in [key] + values]
     # '1' and '3' i.e. odd numbers have values and even numbers have keys (units)
-    length = flat_list[1]
+    length_value = flat_list[1]
     length_unit = flat_list[0]
-    breadth = flat_list[3]
+    breadth_value = flat_list[3]
     breadth_unit = flat_list[2]
     
     # Convert both to target unit (default is meters)
-    length_converted = convert_to_base_unit(length, length_unit, target_unit)
-    breadth_converted = convert_to_base_unit(breadth, breadth_unit, target_unit)
+    length = convert_to_base_unit(length_value, length_unit, target_unit)
+    breadth = convert_to_base_unit(breadth_value, breadth_unit, target_unit)
     
     # Compute area in square of the target unit
-    area = length_converted * breadth_converted
+    area = length * breadth
     result = f"{area} {target_unit}²"
     # Returns the area of a rectangle
     return result
@@ -33,30 +39,40 @@ def rectangle(list, target_unit='m'):
 def circle(dictionary):
     print(f"area:area-  {dictionary}")
     flat_list = [item for key, values in dictionary.items() for item in [key] + values]
-    radius = flat_list[1]
+    radius_value = flat_list[1]
+    radius_unit = flat_list[0]
+    
+    # Convert radius to target unit (default is meters)
+    radius = convert_to_base_unit(radius_value, radius_unit, target_unit)
+    
+    # Compute area in square of the target unit
     area = math.pi * radius ** 2
-    result = str(area) + flat_list[0] + str(2)
+    result = f"{area} {target_unit}²"
     # Returns the area of a circle.
     return result
 
-def triangle(list):
+def triangle(list, target_unit = 'm'):
     print(f"area:area-  {list}")
     # Structure the recieved data in a flattened list displaying keys and values
     flat_list = [item for d in list for key, values in d.items() for item in [key] + values]
     print(f"area:area-  {flat_list}")
     # '1' and '3' i.e. odd numbers have values and even numbers have keys (units)
     l = len(flat_list)
+    
     if l == 2:
-        side = flat_list[1]
-        area = math.sqrt(3) / 4 * side ** 2
-        result = str(area) + flat_list[0] + str(2)
+        unit = flat_list[0]
+        side = convert_to_base_unit(flat_list[1], unit, target_unit)
+        area = (math.sqrt(3) / 4) * side ** 2
+        result = f"{area} {target_unit}²"
         return result
         
     elif l == 4:
-        base = flat_list[1]
-        height = flat_list[3]
+        base_unit, base_value = flat_list[0], flat_list[1]
+        height_unit, height_value = flat_list[2], flat_list[3]
+        base = convert_to_base_unit(base_value, base_unit, target_unit)
+        height = convert_to_base_unit(height_value, height_unit, target_unit)
         result = 0.5 * base * height
-        result = str(area) + flat_list[0] + str(2)
+        result = f"{area} {target_unit}²"
         return result
         
     elif l == 6:
@@ -69,27 +85,36 @@ def triangle(list):
         
         if unit_1 == 'degrees' and value_1 < 180:
             angle_radians = math.radians(value_1)
-            area = 0.5 * value_2 * value_3 * math.sin(angle_radians)
-            result = str(area) + unit_3 + str(2)
+            a = convert_to_base_unit(value_2, unit_2, target_unit)
+            b = convert_to_base_unit(value_3, unit_3, target_unit)
+            area = 0.5 * a * b * math.sin(angle_radians)
+            result = f"{area} {target_unit}²"
             return result
         
         elif unit_2 == 'degrees' and value_2 < 180:
             angle_radians = math.radians(value_2)
-            area = 0.5 * value_1 * value_3 * math.sin(angle_radians)
-            result = str(area) + unit_1 + str(2)
+            a = convert_to_base_unit(value_1, unit_1, target_unit)
+            b = convert_to_base_unit(value_3, unit_3, target_unit)
+            area = 0.5 * a * b * math.sin(angle_radians)
+            result = f"{area} {target_unit}²"
             return result
         
         elif unit_3 == 'degrees' and value_3 < 180:
             angle_radians = math.radians(value_3)
-            area = 0.5 * value_1 * value_2 * math.sin(angle_radians)
-            result = str(area) + unit_2 + str(2)
+            a = convert_to_base_unit(value_1, unit_1, target_unit)
+            b = convert_to_base_unit(value_2, unit_2, target_unit)
+            area = 0.5 * a * b * math.sin(angle_radians)
+            result = f"{area} {target_unit}²"
             return result
         
         else:
-            s = (value_1 + value_2 + value_3)/2
+            a = convert_to_base_unit(value_1, unit_1, target_unit)
+            b = convert_to_base_unit(value_2, unit_2, target_unit)
+            c = convert_to_base_unit(value_3, unit_3, target_unit)
+            s = (a + b + c)/2
             # Returns the area of a triangle when 3 sides are given
-            area = math.sqrt(s * (s - value_1) * (s - value_2) * (s - value_3))
-            result = str(area) + unit_1 + str(2)
+            area = math.sqrt(s * (s - a) * (s - b) * (s - c))
+            result = f"{area} {target_unit}²"
             return result
 
     
