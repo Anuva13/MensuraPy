@@ -32,24 +32,58 @@ def circle(dictionary):
     # Returns the area of a circle.
     return result
 
-def triangle_base_height(base, height):
-    # Returns the area of a triangle when base and height are given
-    return 0.5 * base * height
+def triangle(list):
+    print(f"area:area-  {list}")
+    # Structure the recieved data in a flattened list displaying keys and values
+    flat_list = [item for d in list for key, values in d.items() for item in [key] + values]
+    print(f"area:area-  {flat_list}")
+    # '1' and '3' i.e. odd numbers have values and even numbers have keys (units)
+    l = len(flat_list)
+    if l == 2:
+        side = flat_list[1]
+        area = math.sqrt(3) / 4 * side ** 2
+        result = str(area) + flat_list[0] + str(2)
+        return result
+        
+    elif l == 4:
+        base = flat_list[1]
+        height = flat_list[3]
+        result = 0.5 * base * height
+        result = str(area) + flat_list[0] + str(2)
+        return result
+        
+    elif l == 6:
+        unit_1 = flat_list[0]
+        unit_2 = flat_list[2]
+        unit_3 = flat_list[4]
+        value_1 = flat_list[1]
+        value_2 = flat_list[3]
+        value_3 = flat_list[5]
+        
+        if unit_1 == 'degrees' and value_1 < 180:
+            angle_radians = math.radians(value_1)
+            area = 0.5 * value_2 * value_3 * math.sin(angle_radians)
+            result = str(area) + unit_3 + str(2)
+            return result
+        
+        elif unit_2 == 'degrees' and value_2 < 180:
+            angle_radians = math.radians(value_2)
+            area = 0.5 * value_1 * value_3 * math.sin(angle_radians)
+            result = str(area) + unit_1 + str(2)
+            return result
+        
+        elif unit_3 == 'degrees' and value_3 < 180:
+            angle_radians = math.radians(value_3)
+            area = 0.5 * value_1 * value_2 * math.sin(angle_radians)
+            result = str(area) + unit_2 + str(2)
+            return result
+        
+        else:
+            s = (value_1 + value_2 + value_3)/2
+            # Returns the area of a triangle when 3 sides are given
+            area = math.sqrt(s * (s - value_1) * (s - value_2) * (s - value_3))
+            result = str(area) + unit_1 + str(2)
+            return result
 
-def triangle_heros_formula(side1, side2, side3):
-    # semi-perimeter
-    s = (side1 + side2 + side3)/2
-    # Returns the area of a triangle when 3 sides are given
-    return math.sqrt(s * (s - side1) * (s - side2) * (s - side3))
-
-def equilateral_triangle(side):
-    # Returns the area of a triangle when 3 sides are same
-    return (math.sqrt(3) / 4) * s ** 2
-
-def triangle_sides_angle(side1, side2, angle_degrees):
-    # Convert degrees to radians
-    angle_radians = math.radians(angle_degrees)
-     # Returns the area of a triangle when 2 sides and one angle given
-    return 0.5 * side1 * side2 * math.sin(angle_radians)
     
     
