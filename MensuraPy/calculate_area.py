@@ -1,25 +1,32 @@
 import math
+from unit_converter import * # Module to convert dimensions to base unit 'm'
 
 def square(dictionary):
-    side = list(dictionary.values()) # get the first (and only) value
-    side1 = side[0] # extracted first value from the nested array formed when dict is extracted
-    side1= side1[0]
-    unit = list(dictionary.keys())
-    unit1 = unit[0]
-    area = side1 * side1
-    result = str(area) + unit1 + str(2)
+    # Structure the recieved data in a flattened list displaying keys and values
+    flat_list = [item for key, values in dictionary.items() for item in [key] + values]
+    side = flat_list[1]
+    area = side * side
+    result = str(area) + flat_list[0] + str(2)
     # Returns the area of a square.
     return result
 
-def rectangle(list):
+def rectangle(list, target_unit='m'):
     print(f"area:area-  {list}")
     # Structure the recieved data in a flattened list displaying keys and values
     flat_list = [item for d in list for key, values in d.items() for item in [key] + values]
     # '1' and '3' i.e. odd numbers have values and even numbers have keys (units)
     length = flat_list[1]
+    length_unit = flat_list[0]
     breadth = flat_list[3]
-    area = length * breadth
-    result = str(area) + flat_list[0]+ str(2)
+    breadth_unit = flat_list[2]
+    
+    # Convert both to target unit (default is meters)
+    length_converted = convert_to_base_unit(length, length_unit, target_unit)
+    breadth_converted = convert_to_base_unit(breadth, breadth_unit, target_unit)
+    
+    # Compute area in square of the target unit
+    area = length_converted * breadth_converted
+    result = f"{area} {target_unit}²"
     # Returns the area of a rectangle
     return result
 
