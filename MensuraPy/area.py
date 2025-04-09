@@ -24,17 +24,23 @@ def area(*args):
             print(f"calculate_area:circle-  {result}")
             return result
         
+        if shape == "triangle":
+            result = triangle(dimensions)
+            print(f"calculate_area:triangle-  {result}")
+            return result
+        
         
     
 
 # Tests
 # area()
-# area("square", "3m")
+#area("square", "3m")
 #area("rectangle", "3m", "5m")
-area("circle", "3m")
-
+# area("circle", "3m")
+# area("triangle", "2m", "3m", "90degrees")
+area("triangle", "5m", "6m", "7m")
 """ 
-area("triangle", "2m", "3m", "90degrees")
+
 area("trapezium", "3m", "2m") 
 """  
 
