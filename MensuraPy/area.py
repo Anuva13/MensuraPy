@@ -1,5 +1,6 @@
 from param_parser import *  # Module to analyze and break down input data into a structured, usable format
 from calculate_area import * # Module to calculate area of different polygons
+from unit_converter import * # Module to convert dimensions to base unit 'm'
 
 def area(*args):
     # First check if arguments are having values else display error
@@ -34,13 +35,13 @@ def area(*args):
 
 # Tests
 # area()
-#area("square", "3m")
-#area("rectangle", "3m", "5m")
+area("square", "3m")
+#area("rectangle", "3m", "5cm")
+
+"""
 # area("circle", "3m")
 # area("triangle", "2m", "3m", "90degrees")
 area("triangle", "5m", "6m", "7m")
-""" 
-
 area("trapezium", "3m", "2m") 
 """  
 
