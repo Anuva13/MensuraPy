@@ -205,6 +205,99 @@ def rhombus(list, target_unit = 'm'):
             result = f"{area} {target_unit}²"
             return result
         
+def trapezium(list, target_unit = 'm'):
+    print(f"area:area-  {list}")
+    # Structure the recieved data in a flattened list displaying keys and values
+    flat_list = [item for d in list for key, values in d.items() for item in [key] + values]
+    print(f"area:area-  {flat_list}")
+    # '1' and '3' i.e. odd numbers have values and even numbers have keys (units)
+    l = len(flat_list)
+    
+    if l == 6:
+        value_1 = flat_list[1]
+        unit_1 = flat_list[0]
+        value_2 = flat_list[3]
+        unit_2 = flat_list[2]
+        value_3 = flat_list[5]
+        unit_3 = flat_list[4]
+        a = convert_to_base_unit(value_1, unit_1, target_unit)
+        b = convert_to_base_unit(value_2, unit_2, target_unit)
+        h = convert_to_base_unit(value_3, unit_3, target_unit)
+        area = 0.5 * (a + b) * h
+        result = f"{area} {target_unit}²"
+        return result
+    
+    elif l== 8:
+        value_1 = flat_list[1]
+        unit_1 = flat_list[0]
+        value_2 = flat_list[3]
+        unit_2 = flat_list[2]
+        value_3 = flat_list[5]
+        unit_3 = flat_list[4]
+        value_4 = flat_list[7]
+        unit_4 = flat_list[6]
+        
+        if unit_1 == 'degrees' and value_1 < 180:
+            angle_radians = math.radians(value_1)
+            a = convert_to_base_unit(value_2, unit_2, target_unit)
+            b = convert_to_base_unit(value_3, unit_3, target_unit)
+            c = convert_to_base_unit(value_4, unit_4, target_unit)
+            area = 0.5 * (a+b) * c * math.sin(angle_radians)
+            result = f"{area} {target_unit}²"
+            return result
+        elif unit_2 == 'degrees' and value_2 < 180:
+            angle_radians = math.radians(value_2)
+            a = convert_to_base_unit(value_1, unit_1, target_unit)
+            b = convert_to_base_unit(value_3, unit_3, target_unit)
+            c = convert_to_base_unit(value_4, unit_4, target_unit)
+            area = 0.5 * (a+b) * c * math.sin(angle_radians)
+            result = f"{area} {target_unit}²"
+            return result
+        elif unit_3 == 'degrees' and value_3 < 180:
+            angle_radians = math.radians(value_3)
+            a = convert_to_base_unit(value_1, unit_1, target_unit)
+            b = convert_to_base_unit(value_2, unit_2, target_unit)
+            c = convert_to_base_unit(value_4, unit_4, target_unit)
+            area = 0.5 * (a+b) * c * math.sin(angle_radians)
+            result = f"{area} {target_unit}²"
+            return result
+        elif unit_4 == 'degrees' and value_4 < 180:
+            angle_radians = math.radians(value_4)
+            a = convert_to_base_unit(value_1, unit_1, target_unit)
+            b = convert_to_base_unit(value_2, unit_2, target_unit)
+            c = convert_to_base_unit(value_3, unit_3, target_unit)
+            print(f"Anuva, {a},{b},{c},{angle_radians}")
+            area = 0.5 * (a+b) * c * math.sin(angle_radians)
+            result = f"{area} {target_unit}²"
+            return result
+        
+    elif l== 10:
+        value_1 = flat_list[1]
+        unit_1 = flat_list[0]
+        value_2 = flat_list[3]
+        unit_2 = flat_list[2]
+        value_3 = flat_list[5]
+        unit_3 = flat_list[4]
+        value_4 = flat_list[7]
+        unit_4 = flat_list[6]
+        value_5 = flat_list[9]
+        unit_5 = flat_list[8]
+        
+        a = convert_to_base_unit(value_1, unit_1, target_unit)
+        b = convert_to_base_unit(value_2, unit_2, target_unit)
+        c = convert_to_base_unit(value_3, unit_3, target_unit)
+        d = convert_to_base_unit(value_4, unit_4, target_unit)
+        e = convert_to_base_unit(value_5, unit_5, target_unit)
+        
+        s1 = (a + b + e)/2
+        A1 = math.sqrt(s1 * (s1 - a) * (s1 - b) * (s1 - e))
+        s2 = (c + d + e)/2
+        A2 = math.sqrt(s2 * (s2 - c) * (s2 - d) * (s2 - e))
+        area = A1 + A2
+        result = f"{area} {target_unit}²"
+        return result
+        
+                
 
     
     
