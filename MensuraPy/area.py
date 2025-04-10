@@ -30,6 +30,11 @@ def area(*args):
             print(f"calculate_area:triangle-  {result}")
             return result
         
+        if shape == "parallelogram":
+            result = parallelogram(dimensions)
+            print(f"calculate_area:parallelogram-  {result}")
+            return result
+        
         
     
 
@@ -37,14 +42,13 @@ def area(*args):
 # area()
 # area("square", "3m")
 # area("rectangle", "3m", "5cm")
+# area("circle", "3m")
 # area("triangle", 2m)
 # area("triangle", "2m", "3cm", "30degrees")
 # area("triangle", "3m", "400cm")
-area("triangle", "1.2m", "85cm", "0.00095km")
-
-"""
-# area("circle", "3m")
-area("trapezium", "3m", "2m") 
-"""  
+# area("triangle", "1.2m", "85cm", "0.00095km")
+# area("parallelogram", "10m", "6m")
+area("parallelogram", "8m", "5m", "60degrees")
+ 
 
     
