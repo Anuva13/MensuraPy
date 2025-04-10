@@ -16,6 +16,8 @@ def param_parser(args):
             return triangle_param_parser(args), args[0]
         case 'parallelogram':
             return parallelogram_param_parser(args), args[0]
+        case 'rhombus':
+            return rhombus_param_parser(args), args[0]
         case _:
             print("Error: Invalid shape")
             
@@ -82,6 +84,7 @@ def circle_param_parser(args):
     and if it returns True"""
     if circle_param_validator(args):
         # extract argument 1 and send to extractor and recieve the 'value' and 'unit' splitted and made suitable for calculation
+        print(args[1])
         radius = args[1]
         value, unit = extract_value_and_unit(radius)
     
@@ -118,6 +121,25 @@ def parallelogram_param_parser(args):
     """Call param_validator to check if the arguments are suitable for the calculation
     and if it returns True"""    
     if parallelogram_param_validator(args):
+        # extract arguments and send to extractor
+        for i in range(len(args)-1):
+            dimension = args[i+1]
+            value, unit = extract_value_and_unit(dimension)
+            data = pack_value_and_unit(value, unit)
+            # Inserting the extracted value and unit in the initialised list
+            data_packer.append(data)
+        print(f"param_parser:pack_value_and_unit-  {data_packer}")
+        # Return extracted and packed 'value' and 'unit' to Module 'area'
+        return data_packer
+    else:
+        return data_packer
+    
+def rhombus_param_parser(args):
+    # Initialising a list to append the extracted 'unit' and 'values' as there are more unit and value pairs
+    data_packer = []
+    """Call param_validator to check if the arguments are suitable for the calculation
+    and if it returns True"""    
+    if rhombus_param_validator(args):
         # extract arguments and send to extractor
         for i in range(len(args)-1):
             dimension = args[i+1]

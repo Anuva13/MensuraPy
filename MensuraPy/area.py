@@ -34,6 +34,12 @@ def area(*args):
             result = parallelogram(dimensions)
             print(f"calculate_area:parallelogram-  {result}")
             return result
+
+        if shape == "rhombus":
+            result = rhombus(dimensions)
+            print(f"calculate_area:rhombus-  {result}")
+            return result        
+        
         
         
     
@@ -48,7 +54,10 @@ def area(*args):
 # area("triangle", "3m", "400cm")
 # area("triangle", "1.2m", "85cm", "0.00095km")
 # area("parallelogram", "10m", "6m")
-area("parallelogram", "8m", "5m", "60degrees")
+# area("parallelogram", "8m", "5m", "60degrees")
+# area("parallelogram", "8m", "5000mm", "60degrees")
+# area("rhombus", "8m", "6m")
+# area("rhombus", "800cm", "6m")
  
 
     
