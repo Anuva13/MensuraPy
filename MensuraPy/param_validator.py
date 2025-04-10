@@ -25,4 +25,13 @@ def triangle_param_validator(args):
     elif len(args) == 2:
         return True 
     else:
+        return False
+    
+def parallelogram_param_validator(args):
+    print(f"param_validator:parallelogram_param_validator-  {args}")
+    if len(args) == 3:
+        return True 
+    elif len(args) == 4:
+        return True 
+    else:
         return False  

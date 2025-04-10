@@ -1,7 +1,7 @@
 import math
 from unit_converter import * # Module to convert dimensions to base unit 'm'
 
-def square(dictionary):
+def square(dictionary, target_unit = 'm'):
     # Structure the recieved data in a flattened list displaying keys and values
     flat_list = [item for key, values in dictionary.items() for item in [key] + values]
     side_value = flat_list[1]
@@ -36,7 +36,7 @@ def rectangle(list, target_unit = 'm'):
     # Returns the area of a rectangle
     return result
 
-def circle(dictionary):
+def circle(dictionary, target_unit = 'm'):
     print(f"area:area-  {dictionary}")
     flat_list = [item for key, values in dictionary.items() for item in [key] + values]
     radius_value = flat_list[1]
@@ -116,6 +116,58 @@ def triangle(list, target_unit = 'm'):
             area = math.sqrt(s * (s - a) * (s - b) * (s - c))
             result = f"{area} {target_unit}²"
             return result
+        
+def parallelogram(list, target_unit = 'm'):
+    print(f"area:area-  {list}")
+    # Structure the recieved data in a flattened list displaying keys and values
+    flat_list = [item for d in list for key, values in d.items() for item in [key] + values]
+    print(f"area:area-  {flat_list}")
+    # '1' and '3' i.e. odd numbers have values and even numbers have keys (units)
+    l = len(flat_list)
+    
+    if l == 4:
+        base_value = flat_list[1]
+        base_unit = flat_list[0]
+        height_value = flat_list[3]
+        height_unit = flat_list[2]
+        base = convert_to_base_unit(base_value, base_unit, target_unit)
+        height = convert_to_base_unit(height_value, height_unit, target_unit)
+        area = base * height
+        result = f"{area} {target_unit}²"
+        return result
+    
+    elif l == 6:
+        value_1 = flat_list[1]
+        unit_1 = flat_list[0]
+        value_2 = flat_list[3]
+        unit_2 = flat_list[2]
+        value_3 = flat_list[5]
+        unit_3 = flat_list[4]
+        
+        if unit_1 == 'degrees' and value_1 < 180:
+            angle_radians = math.radians(value_1)
+            a = convert_to_base_unit(value_2, unit_2, target_unit)
+            b = convert_to_base_unit(value_3, unit_3, target_unit)
+            area = a * b * math.sin(angle_radians)
+            result = f"{area} {target_unit}²"
+            return result
+        elif unit_2 == 'degrees' and value_2 < 180:
+            angle_radians = math.radians(value_2)
+            a = convert_to_base_unit(value_1, unit_1, target_unit)
+            b = convert_to_base_unit(value_3, unit_3, target_unit)
+            area = a * b * math.sin(angle_radians)
+            result = f"{area} {target_unit}²"
+            return result
+        
+        elif unit_3 == 'degrees' and value_3 < 180:
+            angle_radians = math.radians(value_3)
+            a = convert_to_base_unit(value_1, unit_1, target_unit)
+            b = convert_to_base_unit(value_2, unit_2, target_unit)
+            area = a * b * math.sin(angle_radians)
+            result = f"{area} {target_unit}²"
+            return result
+
+        
 
     
     
