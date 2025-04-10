@@ -167,6 +167,43 @@ def parallelogram(list, target_unit = 'm'):
             result = f"{area} {target_unit}²"
             return result
 
+def rhombus(list, target_unit = 'm'):
+    print(f"area:area-  {list}")
+    # Structure the recieved data in a flattened list displaying keys and values
+    flat_list = [item for d in list for key, values in d.items() for item in [key] + values]
+    print(f"area:area-  {flat_list}")
+    # '1' and '3' i.e. odd numbers have values and even numbers have keys (units)
+    l = len(flat_list)
+    
+    if l == 4:
+        diagonal1_value = flat_list[1]
+        diagonal1_unit = flat_list[0]
+        diagonal2_value = flat_list[3]
+        diagonal2_unit = flat_list[2]
+        d1 = convert_to_base_unit(diagonal1_value, diagonal1_unit, target_unit)
+        d2 = convert_to_base_unit(diagonal2_value, diagonal2_unit, target_unit)
+        area = 0.5 * d1 * d2
+        result = f"{area} {target_unit}²"
+        return result
+    
+    else:
+        value_1 = flat_list[1]
+        unit_1 = flat_list[0]
+        value_2 = flat_list[3]
+        unit_2 = flat_list[2]
+        
+        if unit_1 == 'degrees' and value_1 < 180:
+            angle_radians = math.radians(value_1)
+            a = convert_to_base_unit(value_2, unit_2, target_unit)
+            area = a * a * math.sin(angle_radians)
+            result = f"{area} {target_unit}²"
+            return result
+        elif unit_2 == 'degrees' and value_2 < 180:
+            angle_radians = math.radians(value_2)
+            a = convert_to_base_unit(value_1, unit_1, target_unit)
+            area = a * a * math.sin(angle_radians)
+            result = f"{area} {target_unit}²"
+            return result
         
 
     
