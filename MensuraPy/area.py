@@ -1,6 +1,5 @@
 from param_parser import *  # Module to analyze and break down input data into a structured, usable format
 from calculate_area import * # Module to calculate area of different polygons
-from unit_converter import * # Module to convert dimensions to base unit 'm'
 
 def area(*args):
     # First check if arguments are having values else display error
@@ -38,6 +37,11 @@ def area(*args):
         if shape == "rhombus":
             result = rhombus(dimensions)
             print(f"calculate_area:rhombus-  {result}")
+            return result
+        
+        if shape == "trapezium":
+            result = trapezium(dimensions)
+            print(f"calculate_area:trapezium-  {result}")
             return result        
         
         
@@ -58,6 +62,13 @@ def area(*args):
 # area("parallelogram", "8m", "5000mm", "60degrees")
 # area("rhombus", "8m", "6m")
 # area("rhombus", "800cm", "6m")
+# area("trapezium", "10m", "6m", "5m")
+# area("trapezium", "1000cm", "6m", "500cm")
+# area("trapezium", "8m", "6m", "5m", "5m", "9m")
+# area("trapezium", "8m", "6000mm", "5m", "5m", "9m")
+# area("trapezium", "8m", "4m", "6m", "60degrees")
+# area("trapezium", "8m", "400cm", "6m", "60degrees")
+area("trapezium", "60degrees", "8m", "400cm", "6m")
  
 
     
