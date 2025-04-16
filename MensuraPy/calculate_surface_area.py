@@ -15,7 +15,7 @@ def cube(dictionary, target_unit = 'm'):
     LSA = 4 * side * side
     BA = side * side
     result = f" \n Total Surface Area: {TSA} {target_unit}² \n Lateral Surface Area: {LSA} {target_unit}² \n Base Area: {BA} {target_unit}²"
-    # Returns the surface area of a cube.
+    # Returns the surface area of a cube
     return result
 
 def cuboid(list, target_unit = 'm'):
@@ -41,4 +41,20 @@ def cuboid(list, target_unit = 'm'):
     BA = l * b
     result = f" \n Total Surface Area: {TSA} {target_unit}² \n Lateral Surface Area: {LSA} {target_unit}² \n Base Area: {BA} {target_unit}²"
     # Returns the area of a cuboid
+    return result
+
+def sphere(dictionary, target_unit = 'm'):
+    # Structure the recieved data in a flattened list displaying keys and values
+    flat_list = [item for key, values in dictionary.items() for item in [key] + values]
+    radius_value = flat_list[1]
+    radius_unit = flat_list[0]
+    
+    # Convert side to target unit (default is meters)
+    r = convert_to_base_unit(radius_value, radius_unit, target_unit)
+    
+    # Compute surface area in sphere of the target unit
+    TSA = 4 * math.pi * r * r
+    CSA = 4 * math.pi * r * r
+    result = f" \n Total Surface Area: {TSA} {target_unit}² \n Curved Surface Area: {CSA} {target_unit}²"
+    # Returns the surface area of a sphere
     return result

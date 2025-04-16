@@ -10,7 +10,9 @@ def param_parser(args):
             case 'cube':
                 return cube_param_parser(args), args[0]
             case 'cuboid':
-                return cuboid_param_parser(args), args[0]    
+                return cuboid_param_parser(args), args[0]
+            case 'sphere':
+                return sphere_param_parser(args), args[0]    
             case _:
                 print("Error: Invalid shape")
     except IndexError:
@@ -73,3 +75,20 @@ def cuboid_param_parser(args):
         return data_packer
     else:
         return data_packer
+    
+def sphere_param_parser(args):
+    
+    """Call param_validator to check if the arguments are suitable for the calculation
+    and if it returns True"""
+    if sphere_param_validator(args):
+        # extract argument 1 and send to extractor and recieve the 'value' and 'unit' splitted and made suitable for calculation
+        side = args[1]
+        value, unit = extract_value_and_unit(side)
+    
+        # Pack 'value' and 'unit' in 'data' to be used for calculation in area program
+        data = pack_value_and_unit(value, unit)
+        print(f"param_parser_surface_area:pack_value_and_unit-  {data}")
+        # Return extracted and packed 'value' and 'unit' to Module 'area'
+        return data
+    else:
+        return {}
