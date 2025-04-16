@@ -147,7 +147,7 @@ def hemisphere(dictionary, target_unit = 'm'):
     # Compute surface area of hemisphere of the target unit
     TSA = 3 * math.pi * r * r
     CSA = 3 * math.pi * r * r
-    result = f" \n Total Surface Area: {TSA} {target_unit}² \n Curvature Surface Area: {CSA} {target_unit}²"
+    result = f" \n Total Surface Area: {TSA} {target_unit}² \n Curved Surface Area: {CSA} {target_unit}²"
     # Returns the surface area of a hemisphere
     return result
     
