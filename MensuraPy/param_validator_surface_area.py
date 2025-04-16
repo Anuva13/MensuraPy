@@ -16,3 +16,9 @@ def sphere_param_validator(args):
         return True
     else:
         return False
+    
+def cylinder_param_validator(args):
+    if len(args) == 3:
+        return True
+    else:
+        return False
