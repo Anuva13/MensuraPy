@@ -52,4 +52,10 @@ def trapezium_param_validator(args):
         elif len(args) == 5:
             return True 
         else:
-            return False  
+            return False
+        
+def ellipse_param_validator(args):
+    if len(args) == 3:
+        return True
+    else:
+        return False  

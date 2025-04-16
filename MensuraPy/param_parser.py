@@ -5,23 +5,28 @@ def param_parser(args):
     # Recieving arguments
     print(f"area:area-  {args}")
     # Based on the shape of polygon call the relevant method to split the arguments & list them
-    match args[0]:
-        case 'square':
-            return square_param_parser(args), args[0]    
-        case 'rectangle':
-            return rectangle_param_parser(args), args[0]
-        case 'circle':
-            return circle_param_parser(args), args[0]
-        case 'triangle':
-            return triangle_param_parser(args), args[0]
-        case 'parallelogram':
-            return parallelogram_param_parser(args), args[0]
-        case 'rhombus':
-            return rhombus_param_parser(args), args[0]
-        case 'trapezium':
-            return trapezium_param_parser(args), args[0]
-        case _:
-            print("Error: Invalid shape")
+    try:
+        match args[0]:
+            case 'square':
+                return square_param_parser(args), args[0]    
+            case 'rectangle':
+                return rectangle_param_parser(args), args[0]
+            case 'circle':
+                return circle_param_parser(args), args[0]
+            case 'triangle':
+                return triangle_param_parser(args), args[0]
+            case 'parallelogram':
+                return parallelogram_param_parser(args), args[0]
+            case 'rhombus':
+                return rhombus_param_parser(args), args[0]
+            case 'trapezium':
+                return trapezium_param_parser(args), args[0]
+            case 'ellipse':
+                return ellipse_param_parser(args), args[0]
+            case _:
+                print("Error: Invalid shape")
+    except IndexError:
+        print("Something went wrong- Index not in range!")
             
 # Regex operation to determine the 'unit' and 'value' of the args recieved from method 'square_param_parser'
 def extract_value_and_unit(value_string):
@@ -43,7 +48,7 @@ def pack_value_and_unit(value, unit):
 
     # Adding multiple values under the same key manually
     data.setdefault(unit, []).append(value)
-    return data
+    return data    
             
 def square_param_parser(args):
     
@@ -161,6 +166,25 @@ def trapezium_param_parser(args):
     """Call param_validator to check if the arguments are suitable for the calculation
     and if it returns True"""    
     if trapezium_param_validator(args):
+        # extract arguments and send to extractor
+        for i in range(len(args)-1):
+            dimension = args[i+1]
+            value, unit = extract_value_and_unit(dimension)
+            data = pack_value_and_unit(value, unit)
+            # Inserting the extracted value and unit in the initialised list
+            data_packer.append(data)
+        print(f"param_parser:pack_value_and_unit-  {data_packer}")
+        # Return extracted and packed 'value' and 'unit' to Module 'area'
+        return data_packer
+    else:
+        return data_packer
+    
+def ellipse_param_parser(args):
+    # Initialising a list to append the extracted 'unit' and 'values' as there are more unit and value pairs
+    data_packer = []
+    """Call param_validator to check if the arguments are suitable for the calculation
+    and if it returns True"""    
+    if ellipse_param_validator(args):
         # extract arguments and send to extractor
         for i in range(len(args)-1):
             dimension = args[i+1]
