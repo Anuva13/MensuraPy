@@ -296,6 +296,26 @@ def trapezium(list, target_unit = 'm'):
         area = A1 + A2
         result = f"{area} {target_unit}²"
         return result
+    
+def ellipse(list, target_unit = 'm'):
+    print(f"area:area-  {list}")
+    # Structure the recieved data in a flattened list displaying keys and values
+    flat_list = [item for d in list for key, values in d.items() for item in [key] + values]
+    # '1' and '3' i.e. odd numbers have values and even numbers have keys (units)
+    major_axis_value = flat_list[1]
+    major_axis_unit = flat_list[0]
+    minor_axis_value = flat_list[3]
+    minor_axis_unit = flat_list[2]
+    
+    # Convert both to target unit (default is meters)
+    major_axis = convert_to_base_unit(major_axis_value, major_axis_unit, target_unit)
+    minor_axis = convert_to_base_unit(minor_axis_value, minor_axis_unit, target_unit)
+    
+    # Compute area in square of the target unit
+    area = math.pi * major_axis * minor_axis
+    result = f"{area} {target_unit}²"
+    # Returns the area of a rectangle
+    return result
         
                 
 

@@ -42,6 +42,11 @@ def area(*args):
         if shape == "trapezium":
             result = trapezium(dimensions)
             print(f"calculate_area:trapezium-  {result}")
+            return result
+        
+        if shape == "ellipse":
+            result = ellipse(dimensions)
+            print(f"calculate_area:ellipse-  {result}")
             return result        
         
         
@@ -68,7 +73,8 @@ def area(*args):
 # area("trapezium", "8m", "6000mm", "5m", "5m", "9m")
 # area("trapezium", "8m", "4m", "6m", "60degrees")
 # area("trapezium", "8m", "400cm", "6m", "60degrees")
-area("trapezium", "60degrees", "8m", "400cm", "6m")
+# area("trapezium", "60degrees", "8m", "400cm", "6m")
+# area("ellipse", "5m", "3m")
  
 
     
