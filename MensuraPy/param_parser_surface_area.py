@@ -18,7 +18,9 @@ def param_parser(args):
             case 'cone':
                 return cone_param_parser(args), args[0]
             case 'pyramid':
-                return pyramid_param_parser(args), args[0]    
+                return pyramid_param_parser(args), args[0]
+            case 'hemisphere':
+                return hemisphere_param_parser(args), args[0]    
             case _:
                 print("Error: Invalid shape")
     except IndexError:
@@ -155,3 +157,20 @@ def pyramid_param_parser(args):
         return data_packer
     else:
         return data_packer
+    
+def hemisphere_param_parser(args):
+    
+    """Call param_validator to check if the arguments are suitable for the calculation
+    and if it returns True"""
+    if hemisphere_param_validator(args):
+        # extract argument 1 and send to extractor and recieve the 'value' and 'unit' splitted and made suitable for calculation
+        side = args[1]
+        value, unit = extract_value_and_unit(side)
+    
+        # Pack 'value' and 'unit' in 'data' to be used for calculation in area program
+        data = pack_value_and_unit(value, unit)
+        print(f"param_parser_surface_area:pack_value_and_unit-  {data}")
+        # Return extracted and packed 'value' and 'unit' to Module 'area'
+        return data
+    else:
+        return {}
