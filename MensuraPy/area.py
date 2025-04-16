@@ -1,4 +1,4 @@
-from param_parser import *  # Module to analyze and break down input data into a structured, usable format
+from param_parser_area import *  # Module to analyze and break down input data into a structured, usable format
 from calculate_area import * # Module to calculate area of different polygons
 
 def area(*args):
