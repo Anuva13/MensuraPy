@@ -28,3 +28,11 @@ def cone_param_validator(args):
         return True
     else:
         return False
+    
+def pyramid_param_validator(args):
+    if len(args) == 4:
+        return True  
+    elif len(args) == 2:
+        return True 
+    else:
+        return False
