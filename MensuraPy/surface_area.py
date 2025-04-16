@@ -29,6 +29,11 @@ def surface_area(*args):
             print(f"calculate_surface_area:cylinder-  {result}")
             return result
         
+        if shape == "cone":
+            result = cone(dimensions)
+            print(f"calculate_surface_area:cone-  {result}")
+            return result
+        
 
 # Tests
 # surface_area()
@@ -37,4 +42,6 @@ def surface_area(*args):
 # surface_area("cuboid", "4cm", "3m", "2cm")
 # surface_area("sphere", "3m")
 # surface_area("cylinder", "5m", "10m")
-surface_area("cylinder", "5cm", "10m")
+# surface_area("cylinder", "5cm", "10m")
+# surface_area("cone", "4m", "3m")
+# surface_area("cone", "4m", "3cm")
