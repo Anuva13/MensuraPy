@@ -101,6 +101,37 @@ def cone(list, target_unit = 'm'):
     TSA = math.pi * r * (l + r) 
     CSA = math.pi * r * l
     BA = math.pi * r * r
-    result = f" \n Total Surface Area: {TSA} {target_unit}² \n Lateral Surface Area: {CSA} {target_unit}² \n Base Area: {BA} {target_unit}²"
+    result = f" \n Total Surface Area: {TSA} {target_unit}² \n Curved Surface Area: {CSA} {target_unit}² \n Base Area: {BA} {target_unit}²"
     # Returns the area of a cone
     return result
+
+def pyramid(list, target_unit = 'm'):
+    print(f"area:area-  {list}")
+    # Structure the recieved data in a flattened list displaying keys and values
+    flat_list = [item for d in list for key, values in d.items() for item in [key] + values]
+    print(f"area:area-  {flat_list}")
+    # '1' and '3' i.e. odd numbers have values and even numbers have keys (units)
+     # '1' and '3' i.e. odd numbers have values and even numbers have keys (units)
+    l = len(flat_list)
+    
+    if l == 2:
+        unit = flat_list[0]
+        side = convert_to_base_unit(flat_list[1], unit, target_unit)
+        TSA = math.sqrt(3) * side ** 2
+        BA = (math.sqrt(3) / 4) * side ** 2
+        result = f" \n Total Surface Area: {TSA} {target_unit}² \n Base Area: {BA} {target_unit}²"
+        return result
+        
+    elif l == 6:
+        side_unit, side_value = flat_list[0], flat_list[1]
+        slant_height_unit, slant_height_value = flat_list[2], flat_list[3]
+        height_unit, height_value = flat_list[4], flat_list[5]
+        s = convert_to_base_unit(side_value, side_unit, target_unit)
+        l = convert_to_base_unit(slant_height_value, slant_height_unit, target_unit)
+        h = convert_to_base_unit(height_value, height_unit, target_unit)
+        TSA = (2 * s * l) + (s * s)
+        LSA = 2 * s * l
+        BA = s * s
+        result = f" \n Total Surface Area: {TSA} {target_unit}² \n Lateral Surface Area: {LSA} {target_unit}² \n Base Area: {BA} {target_unit}²"
+
+        return result
