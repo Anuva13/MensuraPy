@@ -30,7 +30,7 @@ def rectangle(list, target_unit = 'm'):
     length = convert_to_base_unit(length_value, length_unit, target_unit)
     breadth = convert_to_base_unit(breadth_value, breadth_unit, target_unit)
     
-    # Compute area in square of the target unit
+    # Compute area in rectangle of the target unit
     area = length * breadth
     result = f"{area} {target_unit}²"
     # Returns the area of a rectangle
@@ -311,10 +311,10 @@ def ellipse(list, target_unit = 'm'):
     major_axis = convert_to_base_unit(major_axis_value, major_axis_unit, target_unit)
     minor_axis = convert_to_base_unit(minor_axis_value, minor_axis_unit, target_unit)
     
-    # Compute area in square of the target unit
+    # Compute area in ellipse of the target unit
     area = math.pi * major_axis * minor_axis
     result = f"{area} {target_unit}²"
-    # Returns the area of a rectangle
+    # Returns the area of a ellipse
     return result
         
                 
