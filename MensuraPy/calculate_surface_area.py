@@ -58,3 +58,25 @@ def sphere(dictionary, target_unit = 'm'):
     result = f" \n Total Surface Area: {TSA} {target_unit}² \n Curved Surface Area: {CSA} {target_unit}²"
     # Returns the surface area of a sphere
     return result
+
+def cylinder(list, target_unit = 'm'):
+    print(f"area:area-  {list}")
+    # Structure the recieved data in a flattened list displaying keys and values
+    flat_list = [item for d in list for key, values in d.items() for item in [key] + values]
+    # '1' and '3' i.e. odd numbers have values and even numbers have keys (units)
+    radius_value = flat_list[1]
+    radius_unit = flat_list[0]
+    height_value = flat_list[3]
+    height_unit = flat_list[2]
+    
+    # Convert both to target unit (default is meters)
+    r = convert_to_base_unit(radius_value, radius_unit, target_unit)
+    h = convert_to_base_unit(height_value, height_unit, target_unit)
+    
+    # Compute area in cylinder of the target unit
+    TSA = 2 * math.pi * r * (r + h)
+    CSA = 2 * math.pi * r * h
+    BA = math.pi * r * r
+    result = f" \n Total Surface Area: {TSA} {target_unit}² \n Lateral Surface Area: {CSA} {target_unit}² \n Base Area: {BA} {target_unit}²"
+    # Returns the area of a cylinder
+    return result

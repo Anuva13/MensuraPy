@@ -24,10 +24,17 @@ def surface_area(*args):
             print(f"calculate_surface_area:sphere-  {result}")
             return result
         
+        if shape == "cylinder":
+            result = cylinder(dimensions)
+            print(f"calculate_surface_area:cylinder-  {result}")
+            return result
+        
 
 # Tests
 # surface_area()
 # surface_area("cube", "3m")
 # surface_area("cuboid", "4m", "3m", "2m")
 # surface_area("cuboid", "4cm", "3m", "2cm")
-surface_area("sphere", "3m")
+# surface_area("sphere", "3m")
+# surface_area("cylinder", "5m", "10m")
+surface_area("cylinder", "5cm", "10m")
