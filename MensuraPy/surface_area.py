@@ -19,9 +19,15 @@ def surface_area(*args):
             print(f"calculate_surface_area:cuboid-  {result}")
             return result
         
+        if shape == "sphere":
+            result = sphere(dimensions)
+            print(f"calculate_surface_area:sphere-  {result}")
+            return result
+        
 
 # Tests
 # surface_area()
 # surface_area("cube", "3m")
 # surface_area("cuboid", "4m", "3m", "2m")
 # surface_area("cuboid", "4cm", "3m", "2cm")
+surface_area("sphere", "3m")
