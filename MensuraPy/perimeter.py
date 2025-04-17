@@ -61,7 +61,7 @@ def perimeter(*args):
         
         if shape == "sphere":
             result = square(dimensions)
-            print("❌ No edges or perimeter")
+            print("❌ As No edges so perimeter is not possible for sphere")
             
         if shape == "cylinder":
             result = cylinder(dimensions)
@@ -100,5 +100,22 @@ def perimeter(*args):
 # perimeter("rhombus", "3m")
 # perimeter("trapezium", "4m", "2m", "4m", "3m")
 # perimeter("ellipse", "4m", "3m")
+# perimeter("cube", "4m")
+# perimeter("cube", "4cm")
+# perimeter("cuboid", "5m", "3m", "2m")
+# perimeter("cuboid", "5cm", "3cm", "2cm")
+# perimeter("sphere", "5m")
+# perimeter("cylinder", "3m")
+# perimeter("cylinder", "3m", "10m")
+# perimeter("cylinder", "3cm", "10cm")
+# perimeter("cone", "4m")
+# perimeter("cone", "4m", "6m")
+# perimeter("pyramid", "6m", "5m")
+# perimeter("hemisphere", "5m")
+
+
+
+
+
 
 
