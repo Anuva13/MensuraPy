@@ -7,7 +7,7 @@ def area(*args):
         return "Error: No arguments were passed"
     else:
         dimensions, shape = param_parser(args) # Call param_parser method to recieve parsed users inputs for calculation
-        print(f"param_parser-  {dimensions}")
+        print(f"param_parser_area-  {dimensions}")
         
         if shape == "square":
             result = square(dimensions)
