@@ -11,7 +11,42 @@ def perimeter(*args):
         
         if shape == "square":
             result = square(dimensions)
-            print(f"calculate_surface_area:square-  {result}")
+            print(f"calculate_perimeter:square-  {result}")
+            return result
+        
+        if shape == "rectangle":
+            result = rectangle(dimensions)
+            print(f"calculate_perimeter:rectangle-  {result}")
+            return result
+        
+        if shape == "circle":
+            result = circle(dimensions)
+            print(f"calculate_perimeter:circle-  {result}")
+            return result
+        
+        if shape == "triangle":
+            result = triangle(dimensions)
+            print(f"calculate_perimeter:triangle-  {result}")
+            return result
+        
+        if shape == "parallelogram":
+            result = parallelogram(dimensions)
+            print(f"calculate_perimeter:parallelogram-  {result}")
+            return result
+        
+        if shape == "rhombus":
+            result = rhombus(dimensions)
+            print(f"calculate_perimeter:rhombus-  {result}")
+            return result
+        
+        if shape == "trapezium":
+            result = trapezium(dimensions)
+            print(f"calculate_perimeter:trapezium-  {result}")
+            return result
+        
+        if shape == "ellipse":
+            result = ellipse(dimensions)
+            print(f"calculate_perimeter:ellipse-  {result}")
             return result
         
 
@@ -19,3 +54,16 @@ def perimeter(*args):
 # perimeter()
 # perimeter("square", "3m")
 # perimeter("square", "3cm")
+# perimeter("rectangle", "3m", "4m")
+# perimeter("rectangle", "3cm", "4m")
+# perimeter("circle", "3m")
+# perimeter("circle", "3mm")
+# perimeter("triangle", "4m")
+# perimeter("triangle", "4m", "2cm", "4m")
+# perimeter("triangle", "4m", "2m")
+# perimeter("parallelogram", "4cm", "2m")
+# perimeter("triangle", "4m", "2cm")
+# perimeter("rhombus", "3m")
+# perimeter("trapezium", "4m", "2m", "4m", "3m")
+# perimeter("ellipse", "4m", "3m")
+
