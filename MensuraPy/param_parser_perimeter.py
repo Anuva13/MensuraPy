@@ -22,7 +22,21 @@ def param_parser(args):
             case 'trapezium':
                 return trapezium_param_parser(args), args[0]
             case 'ellipse':
-                return ellipse_param_parser(args), args[0]    
+                return ellipse_param_parser(args), args[0]
+            case 'cube':
+                return cube_param_parser(args), args[0] 
+            case 'cuboid':
+                return cuboid_param_parser(args), args[0]
+            case 'sphere':
+                return sphere_param_parser(args), args[0]
+            case 'cylinder':
+                return cylinder_param_parser(args), args[0]
+            case 'cone':
+                return cone_param_parser(args), args[0]
+            case 'pyramid':
+                return pyramid_param_parser(args), args[0]
+            case 'hemisphere':
+                return hemisphere_param_parser(args), args[0]   
             case _:
                 print("Error: Invalid shape")
     except IndexError:
@@ -195,3 +209,131 @@ def ellipse_param_parser(args):
         return data_packer
     else:
         return data_packer
+    
+def cube_param_parser(args):
+    
+    """Call param_validator to check if the arguments are suitable for the calculation
+    and if it returns True"""
+    if cube_param_validator(args):
+        # extract argument 1 and send to extractor and recieve the 'value' and 'unit' splitted and made suitable for calculation
+        side = args[1]
+        value, unit = extract_value_and_unit(side)
+    
+        # Pack 'value' and 'unit' in 'data' to be used for calculation in area program
+        data = pack_value_and_unit(value, unit)
+        print(f"param_parser_perimeter:pack_value_and_unit-  {data}")
+        # Return extracted and packed 'value' and 'unit' to Module 'area'
+        return data
+    else:
+        return {}
+    
+def cuboid_param_parser(args):
+    # Initialising a list to append the extracted 'unit' and 'values' as there are more unit and value pairs
+    data_packer = []
+    """Call param_validator to check if the arguments are suitable for the calculation
+    and if it returns True"""    
+    if cuboid_param_validator(args):
+        # extract arguments and send to extractor
+        for i in range(len(args)-1):
+            dimension = args[i+1]
+            value, unit = extract_value_and_unit(dimension)
+            data = pack_value_and_unit(value, unit)
+            # Inserting the extracted value and unit in the initialised list
+            data_packer.append(data)
+        print(f"param_parser_perimeter:pack_value_and_unit-  {data_packer}")
+        # Return extracted and packed 'value' and 'unit' to Module 'area'
+        return data_packer
+    else:
+        return data_packer
+    
+def sphere_param_parser(args):
+    
+    """Call param_validator to check if the arguments are suitable for the calculation
+    and if it returns True"""
+    if sphere_param_validator(args):
+        # extract argument 1 and send to extractor and recieve the 'value' and 'unit' splitted and made suitable for calculation
+        side = args[1]
+        value, unit = extract_value_and_unit(side)
+    
+        # Pack 'value' and 'unit' in 'data' to be used for calculation in area program
+        data = pack_value_and_unit(value, unit)
+        print(f"param_parser_perimeter:pack_value_and_unit-  {data}")
+        # Return extracted and packed 'value' and 'unit' to Module 'area'
+        return data
+    else:
+        return {}
+    
+def cylinder_param_parser(args):
+    # Initialising a list to append the extracted 'unit' and 'values' as there are more unit and value pairs
+    data_packer = []
+    """Call param_validator to check if the arguments are suitable for the calculation
+    and if it returns True"""    
+    if cylinder_param_validator(args):
+        # extract arguments and send to extractor
+        for i in range(len(args)-1):
+            dimension = args[i+1]
+            value, unit = extract_value_and_unit(dimension)
+            data = pack_value_and_unit(value, unit)
+            # Inserting the extracted value and unit in the initialised list
+            data_packer.append(data)
+        print(f"param_parser_perimeter:pack_value_and_unit-  {data_packer}")
+        # Return extracted and packed 'value' and 'unit' to Module 'area'
+        return data_packer
+    else:
+        return data_packer
+    
+def cone_param_parser(args):
+    # Initialising a list to append the extracted 'unit' and 'values' as there are more unit and value pairs
+    data_packer = []
+    """Call param_validator to check if the arguments are suitable for the calculation
+    and if it returns True"""    
+    if cone_param_validator(args):
+        # extract arguments and send to extractor
+        for i in range(len(args)-1):
+            dimension = args[i+1]
+            value, unit = extract_value_and_unit(dimension)
+            data = pack_value_and_unit(value, unit)
+            # Inserting the extracted value and unit in the initialised list
+            data_packer.append(data)
+        print(f"param_parser_perimeter:pack_value_and_unit-  {data_packer}")
+        # Return extracted and packed 'value' and 'unit' to Module 'area'
+        return data_packer
+    else:
+        return data_packer
+    
+def pyramid_param_parser(args):
+    # Initialising a list to append the extracted 'unit' and 'values' as there are more unit and value pairs
+    data_packer = []
+    """Call param_validator to check if the arguments are suitable for the calculation
+    and if it returns True"""    
+    if pyramid_param_validator(args):
+        # extract arguments and send to extractor
+        for i in range(len(args)-1):
+            dimension = args[i+1]
+            value, unit = extract_value_and_unit(dimension)
+            data = pack_value_and_unit(value, unit)
+            # Inserting the extracted value and unit in the initialised list
+            data_packer.append(data)
+        print(f"param_parser_perimeter:pack_value_and_unit-  {data_packer}")
+        # Return extracted and packed 'value' and 'unit' to Module 'area'
+        return data_packer
+    else:
+        return data_packer
+    
+def hemisphere_param_parser(args):
+    
+    """Call param_validator to check if the arguments are suitable for the calculation
+    and if it returns True"""
+    if hemisphere_param_validator(args):
+        # extract argument 1 and send to extractor and recieve the 'value' and 'unit' splitted and made suitable for calculation
+        side = args[1]
+        value, unit = extract_value_and_unit(side)
+    
+        # Pack 'value' and 'unit' in 'data' to be used for calculation in area program
+        data = pack_value_and_unit(value, unit)
+        print(f"param_parser_perimeter:pack_value_and_unit-  {data}")
+        # Return extracted and packed 'value' and 'unit' to Module 'area'
+        return data
+    else:
+        return {}
+    
