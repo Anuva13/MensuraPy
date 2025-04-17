@@ -49,6 +49,40 @@ def perimeter(*args):
             print(f"calculate_perimeter:ellipse-  {result}")
             return result
         
+        if shape == "cube":
+            result = cube(dimensions)
+            print(f"calculate_perimeter:cube-  {result}")
+            return result
+        
+        if shape == "cuboid":
+            result = cuboid(dimensions)
+            print(f"calculate_perimeter:cuboid-  {result}")
+            return result
+        
+        if shape == "sphere":
+            result = square(dimensions)
+            print("❌ No edges or perimeter")
+            
+        if shape == "cylinder":
+            result = cylinder(dimensions)
+            print(f"calculate_perimeter:cylinder-  {result}")
+            return result
+        
+        if shape == "cone":
+            result = cone(dimensions)
+            print(f"calculate_perimeter:cone-  {result}")
+            return result
+        
+        if shape == "pyramid":
+            result = pyramid(dimensions)
+            print(f"calculate_perimeter:pyramid-  {result}")
+            return result
+        
+        if shape == "hemisphere":
+            result = hemisphere(dimensions)
+            print(f"calculate_perimeter:hemisphere-  {result}")
+            return result
+        
 
 # Tests
 # perimeter()
@@ -66,4 +100,5 @@ def perimeter(*args):
 # perimeter("rhombus", "3m")
 # perimeter("trapezium", "4m", "2m", "4m", "3m")
 # perimeter("ellipse", "4m", "3m")
+
 
