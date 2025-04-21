@@ -1,5 +1,5 @@
-from param_parser_area import *  # Module to analyze and break down input data into a structured, usable format
-from calculate_area import * # Module to calculate area of different polygons
+from .param_parser_area import *  # Module to analyze and break down input data into a structured, usable format
+from .calculate_area import * # Module to calculate area of different polygons
 
 def area(*args):
     try:
@@ -70,7 +70,7 @@ def area(*args):
     
 
 # Tests
-area()
+# area()
 # area("square", "3m")
 # area("rectangle", "3m", "5cm")
 # area("circle", "3m")

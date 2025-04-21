@@ -1,1 +1,4 @@
-MensuraPy/__pycache__
+mensurapy/__pycache__
+mensurapy/__init__.pyc
+tests/__pycache__
+tests/__init__.pyc

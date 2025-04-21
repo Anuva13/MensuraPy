@@ -1,4 +1,4 @@
-from param_validator_surface_area import * # Module to validate arguments
+from .param_validator_surface_area import * # Module to validate arguments
 import re # Module used to extract the user input values into values and units
 def param_parser(args):
     

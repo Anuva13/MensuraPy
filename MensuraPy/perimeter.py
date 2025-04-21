@@ -1,5 +1,5 @@
-from param_parser_perimeter import *  # Module to analyze and break down input data into a structured, usable format
-from calculate_perimeter import * # Module to calculate area of different polygons
+from .param_parser_perimeter import *  # Module to analyze and break down input data into a structured, usable format
+from .calculate_perimeter import * # Module to calculate area of different polygons
 
 def perimeter(*args):
     # First check if arguments are having values else display error
