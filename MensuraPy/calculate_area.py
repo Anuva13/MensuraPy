@@ -71,7 +71,7 @@ def triangle(list, target_unit = 'm'):
         height_unit, height_value = flat_list[2], flat_list[3]
         base = convert_to_base_unit(base_value, base_unit, target_unit)
         height = convert_to_base_unit(height_value, height_unit, target_unit)
-        result = 0.5 * base * height
+        area = 0.5 * base * height
         result = f"{area} {target_unit}²"
         return result
         
