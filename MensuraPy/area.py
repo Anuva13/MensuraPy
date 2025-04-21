@@ -6,7 +6,7 @@ def area(*args):
         
         # First check if arguments are having values else display error
         if not args:  # Check if args is empty
-            print("Error: No arguments were passed")
+            return("Error: No arguments were passed")
         
         # Parse arguments
         try:
