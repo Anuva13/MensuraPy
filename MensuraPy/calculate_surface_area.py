@@ -1,5 +1,5 @@
 import math
-from unit_converter import * # Module to convert dimensions to base unit 'm'
+from .unit_converter import * # Module to convert dimensions to base unit 'm'
 
 def cube(dictionary, target_unit = 'm'):
     # Structure the recieved data in a flattened list displaying keys and values

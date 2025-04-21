@@ -1,5 +1,5 @@
-from param_parser_surface_area import *  # Module to analyze and break down input data into a structured, usable format
-from calculate_surface_area import * # Module to calculate area of different polygons
+from .param_parser_surface_area import *  # Module to analyze and break down input data into a structured, usable format
+from .calculate_surface_area import * # Module to calculate area of different polygons
 
 def surface_area(*args):
     # First check if arguments are having values else display error
