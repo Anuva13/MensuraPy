@@ -45,8 +45,43 @@ class TestAreaFunction(unittest.TestCase):
         self.assertEqual(perimeter("trapezium", "4m", "2m", "4m", "3m"), "13.0 m")
         
     def test_perimeter_ellipse(self):
-        self.assertEqual(perimeter("triangle", "4m", "3m"), "11.0 m")    
-    
-
+        self.assertEqual(perimeter("triangle", "4m", "3m"), "11.0 m")
+        
+    def test_1_perimeter_cube(self):
+        self.assertEqual(perimeter("cube", "3m"), "36.0 m")
+        
+    def test_2_perimeter_cube(self):
+        self.assertEqual(perimeter("cube", "3cm"), "0.36 m")
+        
+    def test_1_perimeter_cuboid(self):
+        self.assertEqual(perimeter("cuboid", "5m", "3m", "2m"), "40.0 m")
+        
+    def test_2_perimeter_cuboid(self):
+        self.assertEqual(perimeter("cuboid", "5cm", "3cm", "2cm"), "0.4 m")
+        
+    def test_perimeter_sphere(self):
+        self.assertEqual(perimeter("sphere", "5m"), "Error: Perimeter not defined for sphere")
+        
+    def test_1_perimeter_cylinder(self):
+        self.assertEqual(perimeter("cylinder", "3m"), "Base Perimeter: 18.84955592153876 m")
+        
+    def test_2_perimeter_cylinder(self):
+        self.assertEqual(perimeter("cylinder", "3m", "4m"), "Total linear boundary: 45.69911184307752 m")
+        
+    def test_3_perimeter_cylinder(self):
+        self.assertEqual(perimeter("cylinder", "3cm", "10cm"), "Total linear boundary: 0.5769911184307752 m")
+        
+    def test_1_perimeter_cone(self):
+        self.assertEqual(perimeter("cone", "4m"), "Base perimeter: 25.132741228718345 m")
+        
+    def test_2_perimeter_cone(self):
+        self.assertEqual(perimeter("cone", "4m", "6m"), "Total boundary- 31.132741228718345 m")
+        
+    def test_perimeter_cone(self):
+        self.assertEqual(perimeter("pyramid", "6m", "5m"), "Total boundary- 44.0 m")
+        
+    def test_perimeter_hemisphere(self):
+        self.assertEqual(perimeter("hemisphere", "5m"), "31.41592653589793 m")
+        
 if __name__ == '__main__':
     unittest.main()

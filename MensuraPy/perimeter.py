@@ -61,7 +61,7 @@ def perimeter(*args):
         
         if shape == "sphere":
             result = square(dimensions)
-            print("❌ As No edges so perimeter is not possible for sphere")
+            return "Error: Perimeter not defined for sphere"
             
         if shape == "cylinder":
             result = cylinder(dimensions)
