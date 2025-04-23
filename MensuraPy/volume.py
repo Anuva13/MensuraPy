@@ -9,7 +9,6 @@ def volume(*args):
 
         # Parse the input arguments
         dimensions, shape = param_parser(args)
-        print(f"param_parser_volume - {dimensions}")
 
         # Map shape names to their respective functions
         shape_functions = {
@@ -30,7 +29,6 @@ def volume(*args):
 
         # Call the shape-specific function
         result = shape_functions[shape](dimensions)
-        print(f"calculate_volume:{shape} - {result}")
         return result
 
     except ValueError as ve:

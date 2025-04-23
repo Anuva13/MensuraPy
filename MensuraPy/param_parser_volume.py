@@ -2,7 +2,6 @@ from .param_validator_volume import *  # Module to validate arguments
 import re  # Module used to extract the user input values into values and units
 
 def param_parser(args):
-    print(f"surface_area:volume-  {args}")
     try:
         shape = args[0]
         match shape:
@@ -37,7 +36,6 @@ def extract_value_and_unit(value_string):
         if match:
             value = float(match.group(1))
             unit = match.group(2)
-            print(f"param_parser_volume:extract_value_and_unit-  {value},{unit}")              
             return value, unit
         else:
             raise ValueError(f"Input '{value_string}' is not in the expected format like '5m' or '3 kg'")
@@ -58,7 +56,6 @@ def cube_param_parser(args):
             side = args[1]
             value, unit = extract_value_and_unit(side)
             data = pack_value_and_unit(value, unit)
-            print(f"param_parser_volume:pack_value_and_unit-  {data}")
             return data
         else:
             raise ValueError("Invalid arguments for cube.")
@@ -75,7 +72,6 @@ def cuboid_param_parser(args):
                 value, unit = extract_value_and_unit(dimension)
                 data = pack_value_and_unit(value, unit)
                 data_packer.append(data)
-            print(f"param_parser:pack_value_and_unit-  {data_packer}")
             return data_packer
         else:
             raise ValueError("Invalid arguments for cuboid.")
@@ -88,7 +84,6 @@ def sphere_param_parser(args):
             side = args[1]
             value, unit = extract_value_and_unit(side)
             data = pack_value_and_unit(value, unit)
-            print(f"param_parser_volume:pack_value_and_unit-  {data}")
             return data
         else:
             raise ValueError("Invalid arguments for sphere.")
@@ -103,7 +98,6 @@ def cylinder_param_parser(args):
                 value, unit = extract_value_and_unit(dimension)
                 data = pack_value_and_unit(value, unit)
                 data_packer.append(data)
-            print(f"param_parser:pack_value_and_unit-  {data_packer}")
             return data_packer
         else:
             raise ValueError("Invalid arguments for cylinder.")
@@ -118,7 +112,6 @@ def cone_param_parser(args):
                 value, unit = extract_value_and_unit(dimension)
                 data = pack_value_and_unit(value, unit)
                 data_packer.append(data)
-            print(f"param_parser:pack_value_and_unit-  {data_packer}")
             return data_packer
         else:
             raise ValueError("Invalid arguments for cone.")
@@ -133,7 +126,6 @@ def pyramid_param_parser(args):
                 value, unit = extract_value_and_unit(dimension)
                 data = pack_value_and_unit(value, unit)
                 data_packer.append(data)
-            print(f"param_parser:pack_value_and_unit-  {data_packer}")
             return data_packer
         else:
             raise ValueError("Invalid arguments for pyramid.")
@@ -146,7 +138,6 @@ def hemisphere_param_parser(args):
             side = args[1]
             value, unit = extract_value_and_unit(side)
             data = pack_value_and_unit(value, unit)
-            print(f"param_parser_surface_area:pack_value_and_unit-  {data}")
             return data
         else:
             raise ValueError("Invalid arguments for hemisphere.")
@@ -161,7 +152,6 @@ def prism_param_parser(args):
                 value, unit = extract_value_and_unit(dimension)
                 data = pack_value_and_unit(value, unit)
                 data_packer.append(data)
-            print(f"param_parser:pack_value_and_unit-  {data_packer}")
             return data_packer
         else:
             raise ValueError("Invalid arguments for prism.")
@@ -176,7 +166,6 @@ def ellipsoid_param_parser(args):
                 value, unit = extract_value_and_unit(dimension)
                 data = pack_value_and_unit(value, unit)
                 data_packer.append(data)
-            print(f"param_parser:pack_value_and_unit-  {data_packer}")
             return data_packer
         else:
             raise ValueError("Invalid arguments for ellipsoid.")

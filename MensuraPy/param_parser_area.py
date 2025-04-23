@@ -3,7 +3,6 @@ import re # Module used to extract the user input values into values and units
 def param_parser(args):
     
     # Recieving arguments
-    print(f"area:area-  {args}")
     # Based on the shape of polygon call the relevant method to split the arguments & list them
     try:
         match args[0]:
@@ -35,8 +34,7 @@ def extract_value_and_unit(value_string):
     
     if match:
         value = float(match.group(1))  # Extract the value as a float
-        unit = match.group(2)          # Extract the unit
-        print(f"param_parser:extract_value_and_unit-  {value},{unit}")              
+        unit = match.group(2)          # Extract the unit              
         return value, unit
     else:
         return None, None  # If no match is found
@@ -61,13 +59,13 @@ def square_param_parser(args):
     
         # Pack 'value' and 'unit' in 'data' to be used for calculation in area program
         data = pack_value_and_unit(value, unit)
-        print(f"param_parser:pack_value_and_unit-  {data}")
         # Return extracted and packed 'value' and 'unit' to Module 'area'
         return data
     else:
         return {}
     
 def rectangle_param_parser(args):
+    
     # Initialising a list to append the extracted 'unit' and 'values' as there are more unit and value pairs
     data_packer = []
     """Call param_validator to check if the arguments are suitable for the calculation
@@ -80,30 +78,29 @@ def rectangle_param_parser(args):
             data = pack_value_and_unit(value, unit)
             # Inserting the extracted value and unit in the initialised list
             data_packer.append(data)
-        print(f"param_parser:pack_value_and_unit-  {data_packer}")
         # Return extracted and packed 'value' and 'unit' to Module 'area'
         return data_packer
     else:
         return data_packer
     
 def circle_param_parser(args):
+    
     """Call param_validator to check if the arguments are suitable for the calculation
     and if it returns True"""
     if circle_param_validator(args):
         # extract argument 1 and send to extractor and recieve the 'value' and 'unit' splitted and made suitable for calculation
-        print(args[1])
         radius = args[1]
         value, unit = extract_value_and_unit(radius)
     
         # Pack 'value' and 'unit' in 'data' to be used for calculation in area program
         data = pack_value_and_unit(value, unit)
-        print(f"param_parser:pack_value_and_unit-  {data}")
         # Return extracted and packed 'value' and 'unit' to Module 'area'
         return data
     else:
         return {}
     
 def triangle_param_parser(args):
+    
     # Initialising a list to append the extracted 'unit' and 'values' as there are more unit and value pairs
     data_packer = []
     """Call param_validator to check if the arguments are suitable for the calculation
@@ -116,13 +113,13 @@ def triangle_param_parser(args):
             data = pack_value_and_unit(value, unit)
             # Inserting the extracted value and unit in the initialised list
             data_packer.append(data)
-        print(f"param_parser:pack_value_and_unit-  {data_packer}")
         # Return extracted and packed 'value' and 'unit' to Module 'area'
         return data_packer
     else:
         return data_packer
     
 def parallelogram_param_parser(args):
+    
     # Initialising a list to append the extracted 'unit' and 'values' as there are more unit and value pairs
     data_packer = []
     """Call param_validator to check if the arguments are suitable for the calculation
@@ -135,13 +132,13 @@ def parallelogram_param_parser(args):
             data = pack_value_and_unit(value, unit)
             # Inserting the extracted value and unit in the initialised list
             data_packer.append(data)
-        print(f"param_parser:pack_value_and_unit-  {data_packer}")
         # Return extracted and packed 'value' and 'unit' to Module 'area'
         return data_packer
     else:
         return data_packer
     
 def rhombus_param_parser(args):
+    
     # Initialising a list to append the extracted 'unit' and 'values' as there are more unit and value pairs
     data_packer = []
     """Call param_validator to check if the arguments are suitable for the calculation
@@ -154,13 +151,13 @@ def rhombus_param_parser(args):
             data = pack_value_and_unit(value, unit)
             # Inserting the extracted value and unit in the initialised list
             data_packer.append(data)
-        print(f"param_parser:pack_value_and_unit-  {data_packer}")
         # Return extracted and packed 'value' and 'unit' to Module 'area'
         return data_packer
     else:
         return data_packer
     
 def trapezium_param_parser(args):
+    
     # Initialising a list to append the extracted 'unit' and 'values' as there are more unit and value pairs
     data_packer = []
     """Call param_validator to check if the arguments are suitable for the calculation
@@ -173,13 +170,13 @@ def trapezium_param_parser(args):
             data = pack_value_and_unit(value, unit)
             # Inserting the extracted value and unit in the initialised list
             data_packer.append(data)
-        print(f"param_parser:pack_value_and_unit-  {data_packer}")
         # Return extracted and packed 'value' and 'unit' to Module 'area'
         return data_packer
     else:
         return data_packer
     
 def ellipse_param_parser(args):
+    
     # Initialising a list to append the extracted 'unit' and 'values' as there are more unit and value pairs
     data_packer = []
     """Call param_validator to check if the arguments are suitable for the calculation
@@ -192,7 +189,6 @@ def ellipse_param_parser(args):
             data = pack_value_and_unit(value, unit)
             # Inserting the extracted value and unit in the initialised list
             data_packer.append(data)
-        print(f"param_parser:pack_value_and_unit-  {data_packer}")
         # Return extracted and packed 'value' and 'unit' to Module 'area'
         return data_packer
     else:
