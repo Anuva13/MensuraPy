@@ -1,7 +1,7 @@
 import unittest
 from mensurapy.perimeter import perimeter
 
-class TestAreaFunction(unittest.TestCase):
+class TestPerimeterFunction(unittest.TestCase):
     def test_empty_parameter(self):
         self.assertEqual(perimeter(), "Error: No arguments were passed")
         

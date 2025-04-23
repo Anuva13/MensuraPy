@@ -1,7 +1,7 @@
 import unittest
 from mensurapy.surface_area import surface_area
 
-class TestAreaFunction(unittest.TestCase):
+class TestSurfaceAreaFunction(unittest.TestCase):
     def test_empty_parameter(self):
         self.assertEqual(surface_area(), "Error: No arguments were passed")
         
