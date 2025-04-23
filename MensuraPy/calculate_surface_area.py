@@ -2,6 +2,7 @@ import math
 from .unit_converter import * # Module to convert dimensions to base unit 'm'
 
 def cube(dictionary, target_unit = 'm'):
+    
     # Structure the recieved data in a flattened list displaying keys and values
     flat_list = [item for key, values in dictionary.items() for item in [key] + values]
     side_value = flat_list[1]
@@ -19,7 +20,7 @@ def cube(dictionary, target_unit = 'm'):
     return result
 
 def cuboid(list, target_unit = 'm'):
-    print(f"surface_area:surface_area-  {list}")
+    
     # Structure the recieved data in a flattened list displaying keys and values
     flat_list = [item for d in list for key, values in d.items() for item in [key] + values]
     # '1' and '3' i.e. odd numbers have values and even numbers have keys (units)
@@ -44,6 +45,7 @@ def cuboid(list, target_unit = 'm'):
     return result
 
 def sphere(dictionary, target_unit = 'm'):
+    
     # Structure the recieved data in a flattened list displaying keys and values
     flat_list = [item for key, values in dictionary.items() for item in [key] + values]
     radius_value = flat_list[1]
@@ -60,7 +62,7 @@ def sphere(dictionary, target_unit = 'm'):
     return result
 
 def cylinder(list, target_unit = 'm'):
-    print(f"surface_area:surface_area-  {list}")
+
     # Structure the recieved data in a flattened list displaying keys and values
     flat_list = [item for d in list for key, values in d.items() for item in [key] + values]
     # '1' and '3' i.e. odd numbers have values and even numbers have keys (units)
@@ -82,7 +84,7 @@ def cylinder(list, target_unit = 'm'):
     return result
 
 def cone(list, target_unit = 'm'):
-    print(f"surface_area:surface_area-  {list}")
+
     # Structure the recieved data in a flattened list displaying keys and values
     flat_list = [item for d in list for key, values in d.items() for item in [key] + values]
     # '1' and '3' i.e. odd numbers have values and even numbers have keys (units)
@@ -106,10 +108,9 @@ def cone(list, target_unit = 'm'):
     return result
 
 def pyramid(list, target_unit = 'm'):
-    print(f"surface_area:surface_area-  {list}")
+
     # Structure the recieved data in a flattened list displaying keys and values
     flat_list = [item for d in list for key, values in d.items() for item in [key] + values]
-    print(f"surface_area:surface_area-  {flat_list}")
     # '1' and '3' i.e. odd numbers have values and even numbers have keys (units)
      # '1' and '3' i.e. odd numbers have values and even numbers have keys (units)
     l = len(flat_list)
