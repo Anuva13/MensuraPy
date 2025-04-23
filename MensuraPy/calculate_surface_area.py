@@ -19,7 +19,7 @@ def cube(dictionary, target_unit = 'm'):
     return result
 
 def cuboid(list, target_unit = 'm'):
-    print(f"area:area-  {list}")
+    print(f"surface_area:surface_area-  {list}")
     # Structure the recieved data in a flattened list displaying keys and values
     flat_list = [item for d in list for key, values in d.items() for item in [key] + values]
     # '1' and '3' i.e. odd numbers have values and even numbers have keys (units)
@@ -35,12 +35,12 @@ def cuboid(list, target_unit = 'm'):
     b = convert_to_base_unit(breadth_value, breadth_unit, target_unit)
     h = convert_to_base_unit(height_value, height_unit, target_unit)
     
-    # Compute area in cuboid of the target unit
+    # Compute surface area in cuboid of the target unit
     TSA = 2 * ((l * b) + (b * h) + (h * l))
     LSA = 2 * h * (l + b)
     BA = l * b
     result = f" \n Total Surface Area: {TSA} {target_unit}² \n Lateral Surface Area: {LSA} {target_unit}² \n Base Area: {BA} {target_unit}²"
-    # Returns the area of a cuboid
+    # Returns the surface area of a cuboid
     return result
 
 def sphere(dictionary, target_unit = 'm'):
@@ -60,7 +60,7 @@ def sphere(dictionary, target_unit = 'm'):
     return result
 
 def cylinder(list, target_unit = 'm'):
-    print(f"area:area-  {list}")
+    print(f"surface_area:surface_area-  {list}")
     # Structure the recieved data in a flattened list displaying keys and values
     flat_list = [item for d in list for key, values in d.items() for item in [key] + values]
     # '1' and '3' i.e. odd numbers have values and even numbers have keys (units)
@@ -73,16 +73,16 @@ def cylinder(list, target_unit = 'm'):
     r = convert_to_base_unit(radius_value, radius_unit, target_unit)
     h = convert_to_base_unit(height_value, height_unit, target_unit)
     
-    # Compute area in cylinder of the target unit
+    # Compute surface area in cylinder of the target unit
     TSA = 2 * math.pi * r * (r + h)
     CSA = 2 * math.pi * r * h
     BA = math.pi * r * r
     result = f" \n Total Surface Area: {TSA} {target_unit}² \n Lateral Surface Area: {CSA} {target_unit}² \n Base Area: {BA} {target_unit}²"
-    # Returns the area of a cylinder
+    # Returns the surface area of a cylinder
     return result
 
 def cone(list, target_unit = 'm'):
-    print(f"area:area-  {list}")
+    print(f"surface_area:surface_area-  {list}")
     # Structure the recieved data in a flattened list displaying keys and values
     flat_list = [item for d in list for key, values in d.items() for item in [key] + values]
     # '1' and '3' i.e. odd numbers have values and even numbers have keys (units)
@@ -97,19 +97,19 @@ def cone(list, target_unit = 'm'):
     # slant height
     l = math.sqrt((r * r) + (h * h))
     
-    # Compute area in cone of the target unit
+    # Compute surface area in cone of the target unit
     TSA = math.pi * r * (l + r) 
     CSA = math.pi * r * l
     BA = math.pi * r * r
     result = f" \n Total Surface Area: {TSA} {target_unit}² \n Curved Surface Area: {CSA} {target_unit}² \n Base Area: {BA} {target_unit}²"
-    # Returns the area of a cone
+    # Returns the surface area of a cone
     return result
 
 def pyramid(list, target_unit = 'm'):
-    print(f"area:area-  {list}")
+    print(f"surface_area:surface_area-  {list}")
     # Structure the recieved data in a flattened list displaying keys and values
     flat_list = [item for d in list for key, values in d.items() for item in [key] + values]
-    print(f"area:area-  {flat_list}")
+    print(f"surface_area:surface_area-  {flat_list}")
     # '1' and '3' i.e. odd numbers have values and even numbers have keys (units)
      # '1' and '3' i.e. odd numbers have values and even numbers have keys (units)
     l = len(flat_list)
