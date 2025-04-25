@@ -112,7 +112,6 @@ def pyramid(list, target_unit = 'm'):
     # Structure the recieved data in a flattened list displaying keys and values
     flat_list = [item for d in list for key, values in d.items() for item in [key] + values]
     # '1' and '3' i.e. odd numbers have values and even numbers have keys (units)
-     # '1' and '3' i.e. odd numbers have values and even numbers have keys (units)
     l = len(flat_list)
     
     if l == 2:

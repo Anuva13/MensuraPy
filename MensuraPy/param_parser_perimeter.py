@@ -37,7 +37,7 @@ def param_parser(args):
             case 'hemisphere':
                 return hemisphere_param_parser(args), args[0]   
             case _:
-                print("Error: Invalid shape")
+                return("Error: Invalid shape")
     except IndexError:
         print("Something went wrong- Index not in range!")
             
