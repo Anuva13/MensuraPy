@@ -56,4 +56,26 @@ To run tests for MensuraPy:
 ```bash
 python3 -m unittest discover tests
 ```
+## 🧠 Why MensuraPy?
 
+MensuraPy provides an easy-to-use solution for calculating measurements in geometry. It's designed with simplicity and efficiency in mind, offering a wide range of functionality to handle various geometric shapes in both 2D and 3D. With MensuraPy, you can easily integrate these calculations into your projects without having to manually handle complex formulas and conversions.
+
+## 🤝 Contributing
+
+Contributions are welcome! If you'd like to contribute to MensuraPy, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Commit your changes.
+4. Push your changes to your fork.
+5. Open a pull request to the main repository.
+
+Please ensure your code follows the style guidelines and that tests are added for any new functionality.
+
+## 📄 License
+
+MensuraPy is released under the MIT License. See the LICENSE file for more information.
+
+## Links
+GitHub: 
+PyPI: 
