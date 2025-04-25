@@ -24,4 +24,36 @@ width="300">
 ## 📦 Installation
 
 ```bash
-pip3 install mensurapy
+pip install mensurapy
+``` 
+
+## 🛠 Usage
+
+```python
+from mensurapy import area, perimeter, surface_area, volume
+
+print(area("rectangle", "5m", "10m"))           # 50.0 m²
+print(perimeter("circle", "7cm"))               # 43.96 cm
+print(surface_area("cube", "4m"))               # Total Surface Area: 96.0 m²
+print(volume("cylinder", "3m", "10m"))          # 282.74 m³
+```
+## 📚 Supported Shapes
+
+2D Shapes
+Square, Rectangle, Circle, Triangle, Parallelogram, Trapezium, Ellipse, Rhombus
+
+3D Shapes
+Cube, Cuboid, Sphere, Cone, Cylinder, Pyramid, Prism, Hemisphere, Ellipsoid
+
+## 🧪 Testing
+
+To run tests for MensuraPy:
+
+1. Clone the repository.
+2. Navigate to the project directory
+3. Run the tests using
+
+```bash
+python3 -m unittest discover tests
+```
+

@@ -6,8 +6,8 @@ class TestAreaFunction(unittest.TestCase):
         self.assertEqual(area(), "Error: No arguments were passed")
     
     def test_wrong_shape(self):
-        self.assertEqual(area("trapezoid", "10m", "6m", "5m"), "Error in parameter parsing: cannot unpack non-iterable NoneType object")    
-        
+        self.assertEqual(area("trapezoid", "10m", "6m", "5m"), "Error in parameter parsing: too many values to unpack (expected 2)")        
+    
     def test_area_square(self):
         self.assertEqual(area("square", "3m"), "Area: 9.0 m²")
         
