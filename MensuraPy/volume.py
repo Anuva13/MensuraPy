@@ -34,8 +34,5 @@ def volume(*args):
     except ValueError as ve:
         return f"ValueError: {ve}"
 
-    except TypeError as te:
-        return f"TypeError: {te}"
-
     except Exception as e:
         return f"Error: {str(e)}"
