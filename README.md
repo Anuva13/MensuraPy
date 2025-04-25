@@ -1,7 +1,5 @@
-# MensuraPy
-
 <h1 align="center">
-<img src="https://github.com/Anuva13/MensuraPy/tree/main/branding/mensurapylogo.svg"
+<img src="https://raw.githubusercontent.com/Anuva13/MensuraPy/main/branding/mensurapylogo.svg"
 width="300">
 </h1><br>
 
