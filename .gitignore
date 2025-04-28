@@ -4,3 +4,7 @@ mensurapy/perimeter.pyc
 tests/__pycache__
 tests/__init__.pyc
 *.pyc
+myenv
+/dist
+*.egg-info
+build

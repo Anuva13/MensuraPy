@@ -77,5 +77,5 @@ Please ensure your code follows the style guidelines and that tests are added fo
 MensuraPy is released under the MIT License. See the LICENSE file for more information.
 
 ## Links
-GitHub: https://github.com/Anuva13/MensuraPy/blob/main/README.md
-PyPI: 
+- **GitHub: https://github.com/Anuva13/MensuraPy/blob/main/README.md
+- **PyPI: https://pypi.org/project/mensurapy/
