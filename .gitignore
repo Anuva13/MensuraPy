@@ -3,3 +3,4 @@ mensurapy/__init__.pyc
 mensurapy/perimeter.pyc
 tests/__pycache__
 tests/__init__.pyc
+*.pyc
